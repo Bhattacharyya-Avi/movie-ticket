@@ -20,17 +20,9 @@ class CategoryController extends Controller
             'name'=>'required',
             'details'=>'required'
         ]);
-
-        if ($request->hasFile('image')) {
-            $file= $request->file('image');
-            $filename= date('Ymdhms').'.'.$file->getClientOriginalExtension();
-            $file->storeAs('/uploads/category',$filename);
-        }
-
         Category::create([
             'name'=>$request->name,
             'details'=>$request->details,
-            'image'=>$filename
         ]);
         return redirect()->back();
     }

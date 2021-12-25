@@ -35,6 +35,7 @@ class MovieController extends Controller
             'details'=>$request->details,
             'category_id'=>$request->category,
             'slot_id'=>$request->slot,
+            'ticket_price'=>$request->price,
             'image'=>$filename,
         ]);
 

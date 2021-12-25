@@ -20,6 +20,7 @@ class CreateMoviesTable extends Migration
             $table->string('category_id');
             $table->string('slot_id');
             $table->string('image')->nullable();
+            $table->double('ticket_price');
             $table->softDeletes();
             $table->timestamps();
         });

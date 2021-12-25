@@ -98,15 +98,7 @@ aria-hidden="true">
                     <input name="name" type="text" class="form-control" id="exampleFormControlInput1"
                     placeholder="category name">
                 </div>
-                
-                
-                
-                <div class="form-group">
-                    <label for="exampleFormControlFile1">Category Image</label>
-                    <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1" placeholder="category price">
-                </div>
-                
-                
+               
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Category Details
                         <span style="color: red">*</span>

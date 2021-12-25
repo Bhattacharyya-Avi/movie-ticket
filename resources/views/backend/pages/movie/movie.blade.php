@@ -107,6 +107,14 @@ aria-hidden="true">
                 </div>
 
                 <div class="form-group">
+                    <label for="exampleFormControlInput1">Ticket price 
+                        <span style="color: red">*</span>
+                    </label>
+                    <input name="price" type="number" class="form-control" id="exampleFormControlInput1"
+                    placeholder="ticket price">
+                </div>
+
+                <div class="form-group">
                     <label for="exampleFormControlSelect1">Select Category</label>
                     <select name="category" class="form-control" id="exampleFormControlSelect1">
                         @foreach ($categories as $category)
