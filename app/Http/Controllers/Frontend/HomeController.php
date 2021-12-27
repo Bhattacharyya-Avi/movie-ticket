@@ -13,7 +13,9 @@ class HomeController extends Controller
     }
 
     public function index(){
-        $moviepopular = Movie::all()->random(3);
+        // $moviepopular = Movie::all()->random(3);
+        $moviepopular = Movie::latest()->take(3)->get();
+        // dd($moviepopular);
         $movieall = Movie::all();
         return view('frontend.pages.home.index',compact('moviepopular','movieall'));
     }

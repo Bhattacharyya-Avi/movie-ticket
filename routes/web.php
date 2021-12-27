@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\HomeController;
+use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\MovieController;
 use App\Http\Controllers\Backend\SlotController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
+use App\Http\Controllers\Frontend\LoginController as FrontendLoginController;
 use App\Http\Controllers\Frontend\MovieController as FrontendMovieController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +28,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/frontend/master',[FrontendHomeController::class,'master'])->name('frontend.master');
 Route::get('/',[FrontendHomeController::class,'index'])->name('frontend.index');
 Route::group(['prefix'=>'user'],function(){
+    Route::get('/',[FrontendLoginController::class,'login'])->name('user.login');
+    Route::get('/registration',[FrontendLoginController::class,'registration'])->name('user.registration');
     Route::get('/movie/list',[FrontendMovieController::class,'movieList'])->name('movie.list');
     Route::get('/all/movies',[FrontendMovieController::class,'allMovie'])->name('all.movie.list');
     Route::get('/movie/category/{id}',[FrontendMovieController::class,'categoryMovie'])->name('category.movie.list');
@@ -37,7 +41,9 @@ Route::group(['prefix'=>'user'],function(){
 
 Route::group(['prefix'=>'admin'], function(){
     //backend
-    Route::get('/',[HomeController::class,'dashboard'])->name('admin.dashboard');
+    Route::get('/',[LoginController::class,'login'])->name('admin.login');
+
+    Route::get('/dashboard',[HomeController::class,'dashboard'])->name('admin.dashboard');
 
     //category
     Route::get('/category/list',[CategoryController::class,'category'])->name('admin.category');

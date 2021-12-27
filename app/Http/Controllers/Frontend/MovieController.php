@@ -11,7 +11,7 @@ use League\CommonMark\Extension\FrontMatter\FrontMatterParser;
 class MovieController extends Controller
 {
     public function movieList(){
-        $movies = Movie::all()->random(6);
+        $movies = Movie::latest()->take(6)->get();
         $categories = Category::all()->random(4);
         return view('frontend.pages.movieList.movieList',compact('movies','categories'));
     }
