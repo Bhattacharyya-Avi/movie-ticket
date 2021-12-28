@@ -29,4 +29,13 @@ class MovieController extends Controller
         return view('frontend.pages.movieList.movieList',compact('movies','categories'));
         
     }
+
+    // public function searchMovie(){
+    //     $key = request()->name;
+    //     // dd(request()->all());
+    //     // dd($key);
+    //     $movies=Movie::where('name','LIKE',"%{$key}%")->get();
+    //     dd($movies);
+
+    // }
 }

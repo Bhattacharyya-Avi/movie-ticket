@@ -5,6 +5,15 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style=" margin-left: 15px; !important;">
     Add movie
 </button>
+{{-- 
+<form action="{{route('sharch.movie')}}" method="get">
+  <div class="form-group">
+    <label for="exampleInputEmail1">search</label>
+    <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form> --}}
+
 <br><br>
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="card">
