@@ -34,9 +34,6 @@ class MovieController extends Controller
         dd($id);
     }
 
-    public function bookMovie($id){
-        dd($id);
-    }
 
     // public function searchMovie(){
     //     $key = request()->name;
