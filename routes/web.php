@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\SlotController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\Frontend\LoginController as FrontendLoginController;
 use App\Http\Controllers\Frontend\MovieController as FrontendMovieController;
+use App\Http\Controllers\Frontend\TicketBookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,9 +39,12 @@ Route::group(['prefix'=>'user'],function(){
         Route::get('/all/movies',[FrontendMovieController::class,'allMovie'])->name('all.movie.list');
         Route::get('/search/movies',[FrontendMovieController::class,'searchMovie'])->name('sharch.movie');
         Route::get('/movie/category/{id}',[FrontendMovieController::class,'categoryMovie'])->name('category.movie.list');
-
         Route::get('/movie/details/{id}',[FrontendMovieController::class,'singleMovie'])->name('single.movie.view');
-        Route::get('/book/ticket/movie/{id}',[FrontendMovieController::class,'bookMovie'])->name('book.ticket.movie');
+
+        Route::get('/book/ticket/movie/{id}',[TicketBookController::class,'bookMovie'])->name('book.ticket.movie');
+        Route::post('/book/ticket',[TicketBookController::class,'bookTicket'])->name('book.ticket.movie.post');
+
+
 
     });
     
