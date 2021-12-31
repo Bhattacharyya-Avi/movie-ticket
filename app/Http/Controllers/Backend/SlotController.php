@@ -27,7 +27,8 @@ class SlotController extends Controller
             'start'=>$request->start,
             'end'=>$request->end,
         ]);
-        return redirect()->back()->with('message','Sloat added!');
+        session()->flash('success','Sloat added');
+        return redirect()->back();
     }
 
     public function slotEdit($id){
@@ -36,7 +37,8 @@ class SlotController extends Controller
             return view('backend.pages.time.slotEdit',compact('slot'));
         }
         else
-        return redirect()->back()->with('error','Slot not found!');
+        session()->flash('error','Slot not found');
+        return redirect()->back();
     }
 
     public function slotUpdate(Request $request,$id){
@@ -48,10 +50,12 @@ class SlotController extends Controller
                 'start'=>$request->start,
                 'end'=>$request->end,
             ]);
-            return redirect()->route('admin.slot')->with('message','Sloat updated');
+            session()->flash('success','Slot updated.');
+            return redirect()->route('admin.slot');
         }
         else
-            return redirect()->route('admin.slot')->with('message','Sloat not found!');
+        session()->flash('error','Slot not found');
+            return redirect()->route('admin.slot');
 
     }
 
@@ -59,10 +63,12 @@ class SlotController extends Controller
         $slot = Slot::find($id);
         if ($slot) {
             $slot->delete();
-            return redirect()->back()->with('message','Slot removed!');
+            session()->flash('success','Slot removed.');
+            return redirect()->back();
         }
         else
-            return redirect()->back()->with('message','Slot not found!');
+        session()->flash('error','Slot not found');
+            return redirect()->back();
 
     }
 
@@ -70,9 +76,11 @@ class SlotController extends Controller
         $slot = Slot::withTrashed()->find($id);
         if ($slot) {
             $slot->restore();
-            return redirect()->back()->with('message','Slot restored!');
+            session()->flash('success','Slot restored');
+            return redirect()->back();
         }
         else
-            return redirect()->back()->with('message','Slot not found!');
+        session()->flash('error','Slot not found');
+            return redirect()->back();
     }
 }

@@ -25,7 +25,9 @@
       @foreach ($movies as $movie)
       <div class="Movie-menu-box action">
         <div class="Movie-menu-img">
+          <a href="{{route('single.movie.view',$movie->id)}}">
           <img src="{{url('/uploads/movie/'.$movie->image)}}" alt="Incredibles" class="img-responsive img-curve">
+          </a>
         </div>
         <div class="Movie-menu-desc">
           <h5>{{$movie->name}}</h5>
@@ -35,7 +37,7 @@
             Genre: {{$movie->category->name}}
           </p>
           
-          <a href="#" class="btn btn-primary">Book Now</a>
+          <a href="{{route('book.ticket.movie',$movie->id)}}" class="btn btn-primary">Book Now</a>
         </div>
       </div>
       @endforeach

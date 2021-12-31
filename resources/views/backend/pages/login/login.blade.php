@@ -33,6 +33,7 @@
         <!-- Menu bar end -->
         <!-- login start -->
         <div class="login-box">
+          @include('flash-message')
           <h1>Login</h1>
           <form action="{{route('admin.do.login')}}" method="POST">
             @csrf

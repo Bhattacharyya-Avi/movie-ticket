@@ -13,7 +13,7 @@
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link active" href="{{route('admin.dashboard')}}" aria-expanded="false">
-                                    <i class="fa fa-fw fa-user-circle"></i>Dashboard 
+                                    <i class="material-icons">dashboard</i>Dashboard 
                                 </a>
                             </li>
 

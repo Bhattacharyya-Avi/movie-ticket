@@ -17,15 +17,18 @@ class LoginController extends Controller
         $userpost = $request->except('_token');
         // dd(Auth::attempt($userpost));
         if (Auth::attempt($userpost)) {
+            session()->flash('success','Login suceessful!');
             return redirect()->route('admin.dashboard');
         }
         else {
+            session()->flash('error','Invalid Emaill or Password');
             return redirect()->back();
         }
     }
 
     public function logout(){
         Auth::logout();
+        session()->flash('warning','Successfully loged out!');
         return redirect()->route('admin.login');
     }
 }

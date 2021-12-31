@@ -38,8 +38,8 @@ class MovieController extends Controller
             'ticket_price'=>$request->price,
             'image'=>$filename,
         ]);
-
-        return redirect()->back()->with('message','Movie added sucessfull!');
+        session()->flash('success','Movie Added.');
+        return redirect()->back();
 
     }
 
@@ -52,11 +52,16 @@ class MovieController extends Controller
         if ($movie) {
             return view('backend.pages.movie.movieEdit',compact('movie','categories','slots'));
         }
+        else {
+            session()->flash('error','Movie not found!');
+            return redirect()->back();
+        }
     }
 
     public function movieUpdate(Request $request,$id){
         // dd($request->all());
         $movie = Movie::find($id);
+        $filename = $movie->image;
         if ($movie) {
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
@@ -68,8 +73,14 @@ class MovieController extends Controller
                 'details'=>$request->details,
                 'category_id'=>$request->category,
                 'slot_id'=>$request->slot,
+                'image'=>$filename
             ]);
+            session()->flash('success','Movie updated');
             return redirect()->route('admin.movie.list')->with('message','Movie updated');
+        }
+        else {
+            session()->flash('error','Movie Not found!');
+            return redirect()->route('admin.movie.list');
         }
     }
 
@@ -77,10 +88,15 @@ class MovieController extends Controller
         $movie = Movie::find($id);
         if ($movie) {
             $movie->delete();
-            return redirect()->back()->with('message','Movie Removed!');
+            session()->flash('success','Movie Removed!');
+            return redirect()->back();
         }
         else
-            return redirect()->back()->with('message','Movie not found!');
+        {
+            session()->flash('error','Movie not found.');
+            return redirect()->back();
+
+        }
 
 
     }
@@ -89,7 +105,12 @@ class MovieController extends Controller
         $movie = Movie::withTrashed()->find($id);
         if ($movie) {
             $movie->restore();
-            return redirect()->back()->with('message','Movie Restored!');
+            session()->flash('success','Movie restored.');
+            return redirect()->back();
+        }
+        else {
+            session()->flash('error','Movie not found.');
+            return redirect()->back();
         }
     }
 

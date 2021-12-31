@@ -30,6 +30,14 @@ class MovieController extends Controller
         
     }
 
+    public function singleMovie($id){
+        dd($id);
+    }
+
+    public function bookMovie($id){
+        dd($id);
+    }
+
     // public function searchMovie(){
     //     $key = request()->name;
     //     // dd(request()->all());

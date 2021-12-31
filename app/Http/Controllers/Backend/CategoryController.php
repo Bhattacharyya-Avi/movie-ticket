@@ -24,6 +24,7 @@ class CategoryController extends Controller
             'name'=>$request->name,
             'details'=>$request->details,
         ]);
+        session()->flash('success','Category added.');
         return redirect()->back();
     }
 
@@ -35,7 +36,8 @@ class CategoryController extends Controller
             return view('backend.pages.category.categoryEdit',compact('category'));
         }
         else
-        return redirect()->back()->with('error','Category not found');
+        session()->flash('error','Category not found');
+        return redirect()->back();
         
 
     }
@@ -56,6 +58,7 @@ class CategoryController extends Controller
                 'details'=>$request->details,
                 // 'image'=>$filename
                 ]);
+                session()->flash('success','Category updated successfuly.');
                 return redirect()->route('admin.category');
             }
             else
@@ -68,11 +71,12 @@ class CategoryController extends Controller
         $category = Category::find($id);
         if ($category) {
             $category->delete();
-            return redirect()->back()->with('message','category deleted!');
+            session()->flash('success','Category Deleted!');
+            return redirect()->back();
             
         }
-
-        return redirect()->back()->with('error','category not found!');
+        session()->flash('error','Category not found!');
+        return redirect()->back();
 
 
     }
@@ -81,8 +85,10 @@ class CategoryController extends Controller
         $category = Category::withTrashed()->find($id);
         if ($category) {
             $category->restore();
-            return redirect()->back()->with('message','category restored!');
+            session()->flash('success','Category restored!');
+            return redirect()->back();
         }
-        return redirect()->back()->with('error','category not found!');
+        session()->flash('error','Category Not found!');
+        return redirect()->back();
     }
 }

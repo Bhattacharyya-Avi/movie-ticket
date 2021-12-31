@@ -12,14 +12,6 @@
         <div class="card-body">
             <div class="table-responsive">
                 
-                @if(session()->has('message'))
-                <p class="alert alert-success">{{session()->get('message')}}</p>
-                @endif
-                
-                @if(session()->has('error'))
-                <p class="alert alert-danger">{{session()->get('error')}}</p>
-                @endif
-                
                 <table class="table table-striped table-bordered first">
                     <thead>
                         <tr>
@@ -110,7 +102,7 @@ aria-hidden="true">
                     <label for="exampleFormControlFile1">Slot start time
                         <span style="color: red">*</span>
                     </label>
-                    <input name="start" type="time" class="form-control-file" id="exampleFormControlFile1" placeholder="slot strat time">
+                    <input name="start" type="time" class="form-control-file"  placeholder="slot strat time">
                 </div>
 
                 <div class="form-group">

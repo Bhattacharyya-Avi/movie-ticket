@@ -4,14 +4,6 @@
 <hr>
 <h3>Edit movie</h3>
 
-@if(session()->has('message'))
-<p class="alert alert-success">{{session()->get('message')}}</p>
-@endif
-
-@if(session()->has('error'))
-<p class="alert alert-danger">{{session()->get('error')}}</p>
-@endif
-
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">

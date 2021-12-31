@@ -29,7 +29,7 @@
         <div class="dashboard-wrapper">
             <div class="dashboard-influence">
                 <div class="container-fluid dashboard-content">
-
+                    @include('flash-message')
                     @yield('contents')
 
 
