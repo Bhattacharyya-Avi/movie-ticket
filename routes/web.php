@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\HomeController;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\MovieController;
+use App\Http\Controllers\Backend\SeatController;
 use App\Http\Controllers\Backend\SlotController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\Frontend\LoginController as FrontendLoginController;
@@ -37,6 +38,7 @@ Route::group(['prefix'=>'user'],function(){
         Route::get('/all/movies',[FrontendMovieController::class,'allMovie'])->name('all.movie.list');
         Route::get('/search/movies',[FrontendMovieController::class,'searchMovie'])->name('sharch.movie');
         Route::get('/movie/category/{id}',[FrontendMovieController::class,'categoryMovie'])->name('category.movie.list');
+
         Route::get('/movie/details/{id}',[FrontendMovieController::class,'singleMovie'])->name('single.movie.view');
         Route::get('/book/ticket/movie/{id}',[FrontendMovieController::class,'bookMovie'])->name('book.ticket.movie');
 
@@ -76,6 +78,14 @@ Route::group(['prefix'=>'admin'], function(){
         Route::put('/movie/update/{id}',[MovieController::class,'movieUpdate'])->name('admin.movie.update');
         Route::get('/movie/delete/{id}',[MovieController::class,'moviedelete'])->name('admin.movie.delete');
         Route::get('/movie/restore/{id}',[MovieController::class,'movierestore'])->name('admin.movie.restore');
+
+        //seat
+        Route::get('/seat/list',[SeatController::class,'seat'])->name('admin.seat.list');
+        Route::post('/seat/add',[SeatController::class,'seatadd'])->name('admin.seat.add');
+        Route::get('/seat/edit/{id}',[SeatController::class,'seatEdit'])->name('admin.seat.edit');
+        Route::put('/seat/update/{id}',[SeatController::class,'seatUpdate'])->name('admin.seat.update');
+        Route::get('/seat/delete/{id}',[SeatController::class,'seatDetele'])->name('admin.seat.delete');
+        Route::get('/seat/restore/{id}',[SeatController::class,'seatRestore'])->name('admin.seat.restore');
     });
     
 });

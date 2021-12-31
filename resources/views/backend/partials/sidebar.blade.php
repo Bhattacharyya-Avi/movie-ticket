@@ -35,6 +35,12 @@
                                 </a>
                             </li>
 
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="{{route('admin.seat.list')}}" aria-expanded="false">
+                                    <i class="fa fa-fw fa-user-circle"></i>Seat List 
+                                </a>
+                            </li>
+
 
                             {{-- <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
