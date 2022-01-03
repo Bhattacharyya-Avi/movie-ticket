@@ -13,7 +13,7 @@ class TicketBookController extends Controller
 {
     public function bookMovie($id)
     {
-        $seats = Seat::all();
+        $seats = Seat::where('status','free')->get();
         $movie = Movie::find($id);
         if ($movie) {
             return view('frontend.pages.ticketbook.ticket',compact('movie','seats'));
@@ -36,6 +36,9 @@ class TicketBookController extends Controller
             Movies_seat::create([
                 'books_id'=>$book->id,
                 'seat_id'=>$value
+            ]);
+            Seat::where('id',$value)->update([
+                'status'=>'booked'
             ]);
         }
 

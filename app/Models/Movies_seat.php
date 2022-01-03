@@ -10,4 +10,8 @@ class Movies_seat extends Model
     use HasFactory;
     protected $table="movies_seat";
     protected $guarded=[];
+
+    public function seat(){
+        return $this->belongsTo(Seat::class);
+    }
 }
