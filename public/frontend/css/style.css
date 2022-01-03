@@ -278,6 +278,22 @@
   .textcolor{
     color: white;
   }
+  #imageT{
+      width:200px;
+  }
+  .Movie-menu-desc2{
+      margin-left: 240px;
+  }
+  .Movie-menu-box2
+  {
+      padding: 2%;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+  }
+  .container-list2{
+      padding: 20px;
+  }
   /* login css end */
   /* Footer css */
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\MovieController;
 use App\Http\Controllers\Backend\SeatController;
 use App\Http\Controllers\Backend\SlotController;
+use App\Http\Controllers\Backend\TicketBookController as BackendTicketBookController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\Frontend\LoginController as FrontendLoginController;
 use App\Http\Controllers\Frontend\MovieController as FrontendMovieController;
@@ -90,6 +91,9 @@ Route::group(['prefix'=>'admin'], function(){
         Route::put('/seat/update/{id}',[SeatController::class,'seatUpdate'])->name('admin.seat.update');
         Route::get('/seat/delete/{id}',[SeatController::class,'seatDetele'])->name('admin.seat.delete');
         Route::get('/seat/restore/{id}',[SeatController::class,'seatRestore'])->name('admin.seat.restore');
+
+        //Ticket book list
+        Route::get('/ticket/book/list',[BackendTicketBookController::class,'bookList'])->name('admin.ticket.book.list');
     });
     
 });
