@@ -12,26 +12,35 @@ class MovieController extends Controller
 {
     public function movieList(){
         $movies = Movie::latest()->take(6)->get();
-        $categories = Category::all()->random(4);
+        $categories = Category::all();
+        // dd($categories);
         return view('frontend.pages.movieList.movieList',compact('movies','categories'));
     }
 
     public function allMovie(){
-        $movies = Movie::all();
-        $categories = Category::all()->random(4);
+        $movies = Movie::all(); 
+        $categories = Category::all();
         return view('frontend.pages.movieList.movieList',compact('movies','categories'));
 
     }
 
     public function categoryMovie($id){
         $movies = Movie::where('category_id',$id)->get();
-        $categories = Category::all()->random(4);
+        $categories = Category::all();
         return view('frontend.pages.movieList.movieList',compact('movies','categories'));
         
     }
 
     public function singleMovie($id){
         dd($id);
+    }
+
+    public function searchMovie(){
+        // dd(request()->all());
+        $categories = Category::all();
+        $key = request()->search;
+        $movies = Movie::where('name','Like',"%{$key}%")->get();
+        return view('frontend.pages.movieList.movieList',compact('movies','categories'));
     }
 
 

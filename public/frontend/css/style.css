@@ -128,27 +128,11 @@
     background-size: cover;
 }
 
-
-.menu ul  {
-    display: flex;
-    justify-content: space-around;
-    margin: auto;
-    background-color:#0334af;
-    list-style: none;
-    padding: 10px;
-    width: 700px;
-    text-align: center;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;   
-    
-    
-}
 .search{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 7% 0;
+    
 }
 /* movie search */
 .btn1{
@@ -177,6 +161,34 @@
 
 
 /* CSS for movie list */
+.menu ul li {
+    
+    background: #3336dd;
+    width: 135px;
+    border: 1px solid #fff;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    float: left;
+    color: #fff;
+    font-size: 16px;
+    position: relative;
+    font-family: poppins;
+    text-transform: uppercase;
+    font-weight:bold;
+    cursor: pointer;   
+    list-style: none;    
+    
+}
+
+.menu ul ul{
+    margin-top:-51px;
+    margin-left: 100px;
+    display: none;
+ }
+    .menu ul li:hover > ul{
+    display: block;
+    }
 
 .menu{
     padding: 60px;

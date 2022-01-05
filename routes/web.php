@@ -41,6 +41,7 @@ Route::group(['prefix'=>'user'],function(){
         Route::get('/search/movies',[FrontendMovieController::class,'searchMovie'])->name('sharch.movie');
         Route::get('/movie/category/{id}',[FrontendMovieController::class,'categoryMovie'])->name('category.movie.list');
         Route::get('/movie/details/{id}',[FrontendMovieController::class,'singleMovie'])->name('single.movie.view');
+        Route::get('/movie/search',[FrontendMovieController::class,'searchMovie'])->name('search.movie');
 
         Route::get('/book/ticket/movie/{id}',[TicketBookController::class,'bookMovie'])->name('book.ticket.movie');
         Route::post('/book/ticket',[TicketBookController::class,'bookTicket'])->name('book.ticket.movie.post');
