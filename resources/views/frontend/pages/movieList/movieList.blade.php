@@ -40,7 +40,7 @@
                 <li>More
                     <ul>
                         @foreach ($categories as $allCategory)
-                        <a href="{{$allCategory->id}}">
+                        <a href="{{route('category.movie.list',$allCategory->id)}}">
                             <li>{{$allCategory->name}}</li>
                         </a>
                         @endforeach

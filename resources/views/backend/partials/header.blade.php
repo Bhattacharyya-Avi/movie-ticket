@@ -22,9 +22,9 @@
                                     <h5 class="mb-0 text-white nav-user-name">{{auth()->user()->name}}</h5>
                                     <span class="status"></span><span class="ml-2">Available</span>
                                 </div>
-                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                <a class="dropdown-item" href="{{route('admin.logout')}}"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                {{-- <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a> --}}
+                                <a class="dropdown-item" href="{{route('admin.logout')}}"><i class="material-icons" style="font-size:18px">power_settings_new</i></i></a>
                             </div>
                         </li>
                     </ul>
