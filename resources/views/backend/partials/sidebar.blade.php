@@ -19,25 +19,31 @@
 
                             <li class="nav-item ">
                                 <a class="nav-link active" href="{{route('admin.category')}}" aria-expanded="false">
-                                    <i class="fa fa-fw fa-user-circle"></i>Movie Category 
+                                    <i class="material-icons">device_hub</i>Movie Category 
                                 </a>
                             </li>
 
                             <li class="nav-item ">
                                 <a class="nav-link active" href="{{route('admin.slot')}}" aria-expanded="false">
-                                    <i class="fa fa-fw fa-user-circle"></i>Slot list 
+                                    <i class="material-icons">access_time</i>Slot list 
                                 </a>
                             </li>
 
                             <li class="nav-item ">
                                 <a class="nav-link active" href="{{route('admin.movie.list')}}" aria-expanded="false">
-                                    <i class="fa fa-fw fa-user-circle"></i>Movie List 
+                                    <i class="material-icons">movie</i>Movie List 
                                 </a>
                             </li>
 
                             <li class="nav-item ">
                                 <a class="nav-link active" href="{{route('admin.seat.list')}}" aria-expanded="false">
-                                    <i class="fa fa-fw fa-user-circle"></i>Seat List 
+                                    <i class="material-icons">airline_seat_recline_extra</i>Seat List 
+                                </a>
+                            </li>
+
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="{{route('admin.ticket.book.list')}}" aria-expanded="false">
+                                    <i class="material-icons">book</i>Ticket Book List 
                                 </a>
                             </li>
 

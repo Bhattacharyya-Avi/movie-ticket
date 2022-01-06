@@ -16,7 +16,6 @@
                     <thead>
                         <tr>
                             <th>SL</th>
-                            <th>Image</th>
                             <th>Name</th>
                             <th>Details</th>
                             <th>Action</th>
@@ -28,9 +27,6 @@
                         @foreach ($categories as $key=>$category)
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td>
-                                <img width="100px" src="{{url('/uploads/category/'.$category->image)}}" alt="category image">
-                            </td>
                             <td>{{$category->name}}</td>
                             <td>{{$category->details}}</td>
                             <td>

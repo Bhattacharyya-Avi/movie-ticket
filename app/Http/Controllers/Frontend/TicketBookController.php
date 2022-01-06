@@ -37,9 +37,9 @@ class TicketBookController extends Controller
                 'books_id'=>$book->id,
                 'seat_id'=>$value
             ]);
-            Seat::where('id',$value)->update([
-                'status'=>'booked'
-            ]);
+            // Seat::where('id',$value)->update([
+            //     'status'=>'booked'
+            // ]);
         }
 
         return redirect()->back();
