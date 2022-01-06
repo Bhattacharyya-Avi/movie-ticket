@@ -26,12 +26,12 @@
     </div>
     
     <div class="form-group">
-        <label for="exampleFormControlFile1">slot Image</label>
+        <label for="exampleFormControlFile1">Slot start time</label>
         <input value="{{$slot->start}}" name="start" type="time" class="form-control-file" id="exampleFormControlFile1" placeholder="slot start time">
     </div>
 
     <div class="form-group">
-        <label for="exampleFormControlFile1">slot Image</label>
+        <label for="exampleFormControlFile1">Slot end time</label>
         <input value="{{$slot->end}}" name="end" type="time" class="form-control-file" id="exampleFormControlFile1" placeholder="slot end time">
     </div>
 

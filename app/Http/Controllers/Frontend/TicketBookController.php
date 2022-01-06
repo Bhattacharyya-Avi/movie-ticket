@@ -26,7 +26,7 @@ class TicketBookController extends Controller
 
     public function bookTicket(Request $request)
     {
-        // dd($request->all());
+         //dd($request->all());
         $book=Book::create([
             'user_id'=>$request->user_id,
             'movie_id'=>$request->movie_id

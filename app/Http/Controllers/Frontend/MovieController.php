@@ -14,6 +14,7 @@ class MovieController extends Controller
         $movies = Movie::latest()->take(6)->get();
         $categories = Category::all();
         // dd($categories);
+        //dd(auth()->user());
         return view('frontend.pages.movieList.movieList',compact('movies','categories'));
     }
 
