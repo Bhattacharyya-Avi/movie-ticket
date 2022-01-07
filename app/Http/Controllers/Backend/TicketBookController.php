@@ -13,4 +13,11 @@ class TicketBookController extends Controller
         // dd($bookDetails); 
         return view('backend.pages.ticket.booklist',compact('bookDetails'));
     }
+
+    public function bookDetails($id){
+        $book = Book::with('movieSeats')->find($id);
+        // $book 
+        // dd($book);
+        return view('backend.pages.ticket.details',compact('book'));
+    }
 }

@@ -3,7 +3,7 @@
 @section('contents')
 <section class="categories">
     <div class="container">
-      <h2 class="text-center wh">Popular Movies</h2>
+      <h2 style="color:white" class="text-center wh">Popular Movies</h2>
       @if (!empty($moviepopular))
         @foreach ($moviepopular as $movies)
         <a href="{{route('single.movie.view',$movies->id)}}">
