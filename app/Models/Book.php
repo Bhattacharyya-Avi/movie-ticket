@@ -21,4 +21,8 @@ class Book extends Model
     public function seat(){
         return $this->belongsToMany(Seat::class);
     }
+
+    public function movie(){
+        return $this->belongsTo(Movie::class);
+    }
 }

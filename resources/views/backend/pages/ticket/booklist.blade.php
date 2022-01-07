@@ -36,7 +36,7 @@
                             <th>User Name</th>
                             <th>Movie Name</th>
                             <th>Seat Number</th>
-                            
+                            <th>Action</th>
                             
                         </tr>
                     </thead>
@@ -46,7 +46,7 @@
                             <td>{{$key+1}}</td>
                             
                             <td>{{$bookdetail->user->name}}</td>
-                            <td>{{$bookdetail->movie_id}}</td>
+                            <td>{{$bookdetail->movie->name}}</td>
                             <td>
                                 @foreach ($bookdetail->movieSeats as $data)
                                     <span class="badge badge-primary">
@@ -54,6 +54,10 @@
                                     {{-- {{$data->seat_id}} --}}
                                     </span>
                                 @endforeach
+                            </td>
+                            <td>
+                                <a href=""><i class="material-icons">delete</i></a>
+                                <a href="{{route('admin.ticket.details.view',$bookdetail->id)}}"><i class="material-icons">remove_red_eye</i></a>
                             </td>
                             {{-- <td>
                                 
