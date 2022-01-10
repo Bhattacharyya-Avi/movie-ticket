@@ -26,80 +26,71 @@ use Illuminate\Support\Facades\Route;
 
 
 //frontend
-Route::get('/frontend/master',[FrontendHomeController::class,'master'])->name('frontend.master');
-Route::get('/',[FrontendHomeController::class,'index'])->name('frontend.index');
-Route::group(['prefix'=>'user'],function(){
-    Route::get('/',[FrontendLoginController::class,'login'])->name('user.login');
-    Route::post('/login/post',[FrontendLoginController::class,'doLogin'])->name('user.do.login');
-    Route::get('/registration',[FrontendLoginController::class,'registration'])->name('user.registration');
-    Route::post('/registration/post',[FrontendLoginController::class,'registrationPost'])->name('user.do.registration');
-    Route::get('/user/logout',[FrontendLoginController::class,'userLogout'])->name('user.logout');
-    
-    Route::group(['middleware'=>['auth','user']],function(){
-        Route::get('/movie/list',[FrontendMovieController::class,'movieList'])->name('movie.list');
-        Route::get('/all/movies',[FrontendMovieController::class,'allMovie'])->name('all.movie.list');
-        Route::get('/search/movies',[FrontendMovieController::class,'searchMovie'])->name('sharch.movie');
-        Route::get('/movie/category/{id}',[FrontendMovieController::class,'categoryMovie'])->name('category.movie.list');
-        Route::get('/movie/details/{id}',[FrontendMovieController::class,'singleMovie'])->name('single.movie.view');
-        Route::get('/movie/search',[FrontendMovieController::class,'searchMovie'])->name('search.movie');
+Route::get('/frontend/master', [FrontendHomeController::class, 'master'])->name('frontend.master');
+Route::get('/', [FrontendHomeController::class, 'index'])->name('frontend.index');
+Route::group(['prefix' => 'user'], function () {
+    Route::get('/', [FrontendLoginController::class, 'login'])->name('user.login');
+    Route::post('/login/post', [FrontendLoginController::class, 'doLogin'])->name('user.do.login');
+    Route::get('/registration', [FrontendLoginController::class, 'registration'])->name('user.registration');
+    Route::post('/registration/post', [FrontendLoginController::class, 'registrationPost'])->name('user.do.registration');
+    Route::get('/user/logout', [FrontendLoginController::class, 'userLogout'])->name('user.logout');
 
-        Route::get('/book/ticket/movie/{id}',[TicketBookController::class,'bookMovie'])->name('book.ticket.movie');
-        Route::post('/book/ticket',[TicketBookController::class,'bookTicket'])->name('book.ticket.movie.post');
+    Route::group(['middleware' => ['auth', 'user']], function () {
+        Route::get('/movie/list', [FrontendMovieController::class, 'movieList'])->name('movie.list');
+        Route::get('/all/movies', [FrontendMovieController::class, 'allMovie'])->name('all.movie.list');
+        Route::get('/search/movies', [FrontendMovieController::class, 'searchMovie'])->name('sharch.movie');
+        Route::get('/movie/category/{id}', [FrontendMovieController::class, 'categoryMovie'])->name('category.movie.list');
+        Route::get('/movie/details/{id}', [FrontendMovieController::class, 'singleMovie'])->name('single.movie.view');
+        Route::get('/movie/search', [FrontendMovieController::class, 'searchMovie'])->name('search.movie');
 
-
-
+        Route::get('/book/ticket/movie/{id}', [TicketBookController::class, 'bookMovie'])->name('book.ticket.movie');
+        Route::post('/book/ticket', [TicketBookController::class, 'bookTicket'])->name('book.ticket.movie.post');
     });
-    
 });
 //backend
-Route::group(['prefix'=>'admin'], function(){
-    
-    Route::get('/',[LoginController::class,'login'])->name('admin.login');
-    Route::post('/admin/login',[LoginController::class,'doLogin'])->name('admin.do.login');
+Route::group(['prefix' => 'admin'], function () {
 
-    Route::group(['middleware'=>['auth','admin']],function(){
-        Route::get('/admin/logout',[LoginController::class,'logout'])->name('admin.logout');
-        Route::get('/dashboard',[HomeController::class,'dashboard'])->name('admin.dashboard');
-        
+    Route::get('/', [LoginController::class, 'login'])->name('admin.login');
+    Route::post('/admin/login', [LoginController::class, 'doLogin'])->name('admin.do.login');
+
+    Route::group(['middleware' => ['auth', 'admin']], function () {
+        Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
+        Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('admin.dashboard');
+
         //category
-        Route::get('/category/list',[CategoryController::class,'category'])->name('admin.category');
-        Route::post('/category/create',[CategoryController::class,'categoryCreate'])->name('admin.category.create');
-        Route::get('/category/edit/{id}',[CategoryController::class,'categoryEdit'])->name('admin.category.edit');
-        Route::put('/category/update/{id}',[CategoryController::class,'categoryEditUpdate'])->name('admin.category.edit.update');
-        Route::get('/category/delete/{id}',[CategoryController::class,'categoryDelete'])->name('admin.category.delete');
-        Route::get('/category/restore/{id}',[CategoryController::class,'categoryRestore'])->name('admin.category.restore');
-        
+        Route::get('/category/list', [CategoryController::class, 'category'])->name('admin.category');
+        Route::post('/category/create', [CategoryController::class, 'categoryCreate'])->name('admin.category.create');
+        Route::get('/category/edit/{id}', [CategoryController::class, 'categoryEdit'])->name('admin.category.edit');
+        Route::put('/category/update/{id}', [CategoryController::class, 'categoryEditUpdate'])->name('admin.category.edit.update');
+        Route::get('/category/delete/{id}', [CategoryController::class, 'categoryDelete'])->name('admin.category.delete');
+        Route::get('/category/restore/{id}', [CategoryController::class, 'categoryRestore'])->name('admin.category.restore');
+
         //slot
-        Route::get('/slot/list',[SlotController::class,'slot'])->name('admin.slot');
-        Route::post('/slot/create',[SlotController::class,'slotCreate'])->name('admin.slot.create');
-        Route::get('/slot/edit/{id}',[SlotController::class,'slotEdit'])->name('admin.slot.edit');
-        Route::put('/slot/update/{id}',[SlotController::class,'slotUpdate'])->name('admin.slot.update');
-        Route::get('/slot/delete/{id}',[SlotController::class,'slotDelete'])->name('admin.slot.delete');
-        Route::get('/slot/restore/{id}',[SlotController::class,'slotRestore'])->name('admin.slot.restore');
-        
+        Route::get('/slot/list', [SlotController::class, 'slot'])->name('admin.slot');
+        Route::post('/slot/create', [SlotController::class, 'slotCreate'])->name('admin.slot.create');
+        Route::get('/slot/edit/{id}', [SlotController::class, 'slotEdit'])->name('admin.slot.edit');
+        Route::put('/slot/update/{id}', [SlotController::class, 'slotUpdate'])->name('admin.slot.update');
+        Route::get('/slot/delete/{id}', [SlotController::class, 'slotDelete'])->name('admin.slot.delete');
+        Route::get('/slot/restore/{id}', [SlotController::class, 'slotRestore'])->name('admin.slot.restore');
+
         //movie
-        Route::get('/movie/list',[MovieController::class,'movie'])->name('admin.movie.list');
-        Route::post('/movie/add',[MovieController::class,'movieAdd'])->name('admin.movie.add');
-        Route::get('/movie/edit/{id}',[MovieController::class,'movieEdit'])->name('admin.movie.edit');
-        Route::put('/movie/update/{id}',[MovieController::class,'movieUpdate'])->name('admin.movie.update');
-        Route::get('/movie/delete/{id}',[MovieController::class,'moviedelete'])->name('admin.movie.delete');
-        Route::get('/movie/restore/{id}',[MovieController::class,'movierestore'])->name('admin.movie.restore');
+        Route::get('/movie/list', [MovieController::class, 'movie'])->name('admin.movie.list');
+        Route::post('/movie/add', [MovieController::class, 'movieAdd'])->name('admin.movie.add');
+        Route::get('/movie/edit/{id}', [MovieController::class, 'movieEdit'])->name('admin.movie.edit');
+        Route::put('/movie/update/{id}', [MovieController::class, 'movieUpdate'])->name('admin.movie.update');
+        Route::get('/movie/delete/{id}', [MovieController::class, 'moviedelete'])->name('admin.movie.delete');
+        Route::get('/movie/restore/{id}', [MovieController::class, 'movierestore'])->name('admin.movie.restore');
 
         //seat
-        Route::get('/seat/list',[SeatController::class,'seat'])->name('admin.seat.list');
-        Route::post('/seat/add',[SeatController::class,'seatadd'])->name('admin.seat.add');
-        Route::get('/seat/edit/{id}',[SeatController::class,'seatEdit'])->name('admin.seat.edit');
-        Route::put('/seat/update/{id}',[SeatController::class,'seatUpdate'])->name('admin.seat.update');
-        Route::get('/seat/delete/{id}',[SeatController::class,'seatDetele'])->name('admin.seat.delete');
-        Route::get('/seat/restore/{id}',[SeatController::class,'seatRestore'])->name('admin.seat.restore');
+        Route::get('/seat/list', [SeatController::class, 'seat'])->name('admin.seat.list');
+        Route::post('/seat/add', [SeatController::class, 'seatadd'])->name('admin.seat.add');
+        Route::get('/seat/edit/{id}', [SeatController::class, 'seatEdit'])->name('admin.seat.edit');
+        Route::put('/seat/update/{id}', [SeatController::class, 'seatUpdate'])->name('admin.seat.update');
+        Route::get('/seat/delete/{id}', [SeatController::class, 'seatDetele'])->name('admin.seat.delete');
+        Route::get('/seat/restore/{id}', [SeatController::class, 'seatRestore'])->name('admin.seat.restore');
 
         //Ticket book list
-        Route::get('/ticket/book/list',[BackendTicketBookController::class,'bookList'])->name('admin.ticket.book.list');
-        Route::get('/ticket/details/{id}',[BackendTicketBookController::class,'bookDetails'])->name('admin.ticket.details.view');
+        Route::get('/ticket/book/list', [BackendTicketBookController::class, 'bookList'])->name('admin.ticket.book.list');
+        Route::get('/ticket/details/{id}', [BackendTicketBookController::class, 'bookDetails'])->name('admin.ticket.details.view');
     });
-    
 });
-
-
-
-
