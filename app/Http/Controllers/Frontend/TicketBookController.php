@@ -13,7 +13,39 @@ class TicketBookController extends Controller
 {
     public function bookMovie($id)
     {
-        $seats = Seat::where('status','free')->get();
+        $user_id = auth()->user()->id;
+        // dd($user_id);
+        $book = Book::where([
+            ['movie_id',$id],
+            ['user_id',$user_id]
+        ])->get();
+        // dd($book);
+        if (!empty($book)) {
+            foreach ($book as $value) {
+                $seatBooked = Movies_seat::where([
+                    ['books_id',$value->id]
+                ])->get();
+                // dd($seatBooked);
+            }
+        } 
+        // dd($seatBooked);
+        $X=$seatBooked->pluck('seat_id');
+        // dd($X);
+        if (!empty($seatBooked)) {
+            // foreach ($X as $key => $x) {
+            $seats = Seat::where([
+                ['id', '!=', $X]
+            ])->get();
+            // dd($seats);
+        // }
+        } else {
+            // dd("in else seat");
+            $seats = Seat::all();
+            
+        }
+        
+        // dd($key);
+        // dd($seats);
         $movie = Movie::find($id);
         if ($movie) {
             return view('frontend.pages.ticketbook.ticket',compact('movie','seats'));
