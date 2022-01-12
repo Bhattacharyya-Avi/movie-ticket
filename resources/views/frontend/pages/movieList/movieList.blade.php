@@ -62,7 +62,7 @@
                     <h5>{{$movie->name}}</h5>
                     <p class="Movie-price">TK {{$movie->ticket_price}}</p>
                     <p class="Movie-detail">
-                        Director: {{$movie->details}}<br>
+                        {{-- Director: {{$movie->details}}<br> --}}
                         Genre: {{$movie->category->name}}
                     </p>
 

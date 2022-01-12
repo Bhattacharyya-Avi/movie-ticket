@@ -92,5 +92,7 @@ Route::group(['prefix' => 'admin'], function () {
         //Ticket book list
         Route::get('/ticket/book/list', [BackendTicketBookController::class, 'bookList'])->name('admin.ticket.book.list');
         Route::get('/ticket/details/{id}', [BackendTicketBookController::class, 'bookDetails'])->name('admin.ticket.details.view');
+
+        Route::get('/booked/releace',[BackendTicketBookController::class,'bookRelease'])->name('admin.booked.releace');
     });
 });

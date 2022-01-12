@@ -15,6 +15,8 @@
 </form> --}}
 
 <br><br>
+        <a href="{{route('admin.booked.releace')}}" class="btn btn-info">Releace</a>
+
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="card">
         <h5 class="card-header">movie list</h5>
