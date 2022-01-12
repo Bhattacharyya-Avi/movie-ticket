@@ -33,7 +33,9 @@ class MovieController extends Controller
     }
 
     public function singleMovie($id){
-        dd($id);
+        // dd($id);
+        $movie = Movie::find($id);
+        return view('frontend.pages.movieList.details',compact('movie'));
     }
 
     public function searchMovie(){

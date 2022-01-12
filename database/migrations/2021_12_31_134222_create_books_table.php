@@ -20,6 +20,7 @@ class CreateBooksTable extends Migration
             $table->unsignedBigInteger('movie_id')->unsigned();
             $table->foreign('movie_id')->references('id')->on('movies');
             $table->string('status')->default('booked');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
