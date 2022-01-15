@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\TicketBookController as BackendTicketBookContro
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\Frontend\LoginController as FrontendLoginController;
 use App\Http\Controllers\Frontend\MovieController as FrontendMovieController;
+use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\TicketBookController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,6 +46,8 @@ Route::group(['prefix' => 'user'], function () {
 
         Route::get('/book/ticket/movie/{id}', [TicketBookController::class, 'bookMovie'])->name('book.ticket.movie');
         Route::post('/book/ticket', [TicketBookController::class, 'bookTicket'])->name('book.ticket.movie.post');
+        Route::get('/ticket/book/history',[TicketBookController::class,'history'])->name('ticket.book.history');
+        Route::get('/ticketbook/payment',[PaymentController::class,'payment'])->name('ticket.book.payment');
     });
 });
 //backend
