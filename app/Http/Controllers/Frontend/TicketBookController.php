@@ -87,4 +87,10 @@ class TicketBookController extends Controller
 
         return redirect()->back();
     }
+
+    public function history(){
+        $history = Book::with(['movieSeats'])->where('user_id',auth()->user()->id)->withTrashed()->get();
+        // dd($history);
+        return view('frontend.pages.ticketbook.history',compact('history'));
+    }
 }
