@@ -12,33 +12,34 @@
                 <div class="col-sm-6">
                     <div class="Movie-menu-box2 action">
                         <div class="Movie-menu-img">
-                            <a href="{{route('single.movie.view',$movie->id)}}">
-                                <img id="imageT" src="{{url('/uploads/movie/'.$movie->image)}}" alt="Incredibles"
+                            <a href="{{route('single.movie.view',$book->movie->id)}}">
+                                <img id="imageT" src="{{url('/uploads/movie/'.$book->movie->image)}}" alt="Incredibles"
                                     class="img-responsive img-curve">
                             </a>
                         </div>
                         <div class="Movie-menu-desc2">
-                            <h5>{{$movie->name}}</h5>
+                            <h5>{{$book->movie->name}}</h5>
                             <p class="Movie-price">
-                                TK {{$movie->ticket_price}} <br>
+                                TK {{$book->movie->ticket_price}} <br>
                                 <small style="color: red">This Price is for only one ticket.</small>
                             </p>
                             <p class="Movie-detail">
-                                Director: {{$movie->details}}<br>
-                                Genre: {{$movie->category->name}}
+                                Director: {{$book->movie->details}}<br>
+                                Genre: {{$book->movie->category->name}}
                             </p>
-                            <p>Time: {{$movie->slot->start}} - {{$movie->slot->end}}</p>
-                           
+                            <p>Time: {{$book->movie->slot->start}} - {{$book->movie->slot->end}}</p>
+
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
-                   
+
                     <!-- payment form -->
-                    <form action="{{route('book.ticket.movie.post')}}" method="POST">
-                      @csrf
+                    <form action="{{route('ticket.book.payment.post',$book->id)}}" method="POST">
+                        @csrf
                         <div class="form-group">
-                            <input hidden value="{{$movie->id}}" type="number" name="movie_id" class="form-control">
+                            <input hidden value="{{$book->movie->id}}" type="number" name="movie_id"
+                                class="form-control">
                         </div>
 
                         <div class="form-group">
@@ -48,7 +49,7 @@
 
                         <div class="form-group">
                             <label for="exampleFormControlInput1">User Name</label>
-                            <input type="text" value="{{auth()->user()->name}}" class="form-control"
+                            <input name="username" type="text" value="{{auth()->user()->name}}" class="form-control"
                                 id="exampleFormControlInput1" placeholder="Enter Your name">
                         </div>
 
@@ -57,27 +58,58 @@
                             <input name="email" type="email" value="{{auth()->user()->email}}" class="form-control"
                                 id="exampleFormControlInput1" placeholder="Enter Your email">
                         </div>
+
+
+
+                        {{-- @foreach ($book->movieSeats as $p=>$info)
+                                                <span style="color: black" class="badge badge-primary">
+                                                {{$info->seat->seat_number}}
+                        </span>
+                        @endforeach --}}
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Payment Method</label>
+                            <select name="payment_method" class="form-control" id="exampleFormControlSelect1">
+                                <option>Cash</option>
+                                <option>Bkash</option>
+                                <option>Rocket</option>
+                                <option>Upay</option>
+                            </select>
+                        </div>
+
+                        <div class="form_select">
+                            <label>Account Number</label>
+                            <input name="account_number" type="tel" class="form-control" id="exampleFormControlInput1"
+                                placeholder="eg. 64yjkiiuy">
+                            <span><small style="color: red;">Needed if you are not paying via cash</small></span>
+                        </div>
+
                         <div class="form_select">
                             <label>Selected Seat</label>
-                            <input name="email" type="email"  class="form-control"
-                                id="exampleFormControlInput1" placeholder="A4">
+                            @foreach ($book->movieSeats as $p=>$info)
+                            <span style="color: black" class="badge badge-primary">
+                                {{$info->seat->seat_number}}
+                            </span>
+                            @endforeach
                         </div>
+
+                        @php
+                            $single_price = $book->movie->ticket_price;
+                            $total_price = $single_price * ($p+1);
+                        @endphp
+
                         <div class="form_select">
-                            <label>Payment Method(bkash/Rocket/Bank)</label>
-                            <input name="email" type="email"  class="form-control"
-                                id="exampleFormControlInput1" placeholder="eg. Bkash">
+                            <label>Amount</label>
+                            <input value="{{$total_price}}" name="amount" type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="eg. 64yjkiiuy" readonly>
                         </div>
-                        <div class="form_select">
-                            <label>Transection Id/ Account Number</label>
-                            <input name="email" type="email"  class="form-control"
-                                id="exampleFormControlInput1" placeholder="eg. 64yjkiiuy">
-                        </div>
+                        
                         <br>
                         <div class="form-group">
-                          <button type="submit" class="btn btn-info">Confirm</button>
+                            <button type="submit" class="btn btn-info">Confirm</button>
                         </div>
                     </form>
-                     
+
                 </div>
             </div>
             <div class="clearfix"></div>

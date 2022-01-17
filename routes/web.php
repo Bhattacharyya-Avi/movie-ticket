@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\HomeController;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\MovieController;
+use App\Http\Controllers\Backend\PaymentController as BackendPaymentController;
 use App\Http\Controllers\Backend\SeatController;
 use App\Http\Controllers\Backend\SlotController;
 use App\Http\Controllers\Backend\TicketBookController as BackendTicketBookController;
@@ -47,7 +48,10 @@ Route::group(['prefix' => 'user'], function () {
         Route::get('/book/ticket/movie/{id}', [TicketBookController::class, 'bookMovie'])->name('book.ticket.movie');
         Route::post('/book/ticket', [TicketBookController::class, 'bookTicket'])->name('book.ticket.movie.post');
         Route::get('/ticket/book/history',[TicketBookController::class,'history'])->name('ticket.book.history');
-        Route::get('/ticketbook/payment',[PaymentController::class,'payment'])->name('ticket.book.payment');
+
+        Route::get('/ticketbook/payment/{id}',[PaymentController::class,'payment'])->name('ticket.book.payment');
+        Route::post('/ticketbook/payment/post/{id}',[PaymentController::class,'paymentPost'])->name('ticket.book.payment.post');
+
     });
 });
 //backend
@@ -97,5 +101,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/ticket/details/{id}', [BackendTicketBookController::class, 'bookDetails'])->name('admin.ticket.details.view');
 
         Route::get('/booked/releace',[BackendTicketBookController::class,'bookRelease'])->name('admin.booked.releace');
+
+        //payment
+        Route::get('/payment/list',[BackendPaymentController::class,'paymentList'])->name('admin.payment.list');
     });
 });
