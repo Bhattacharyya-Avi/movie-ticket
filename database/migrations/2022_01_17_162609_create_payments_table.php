@@ -22,6 +22,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('account_number');
             $table->double('amount');
             $table->string('status')->default('pending');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -104,5 +104,9 @@ Route::group(['prefix' => 'admin'], function () {
 
         //payment
         Route::get('/payment/list',[BackendPaymentController::class,'paymentList'])->name('admin.payment.list');
+        Route::get('/payment/approved/{pay_id}',[BackendPaymentController::class,'paymentApprove'])->name('admin.payment.approve');
+        Route::get('/payment/delete/{pay_id}',[BackendPaymentController::class,'paymentDelete'])->name('admin.payment.delete');
+
+
     });
 });
