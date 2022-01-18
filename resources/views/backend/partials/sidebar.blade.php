@@ -47,6 +47,12 @@
                                 </a>
                             </li>
 
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="{{route('admin.payment.list')}}" aria-expanded="false">
+                                    <i class="material-icons">attach_money</i>Payment List
+                                </a>
+                            </li>
+
 
                             {{-- <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
