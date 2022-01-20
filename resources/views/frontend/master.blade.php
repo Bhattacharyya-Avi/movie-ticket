@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Document</title>
+  <title>BUSTERX</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -32,7 +32,7 @@
         <!--Logo start-->
         <div class="col-md-2">
           <div class="logo">
-            <a href="#"><img src="assets/image/logo.png" alt=""></a>
+            <a href="#"><img src="{{url('/images/logo.png')}}" alt=""></a>
           </div>
         </div>
         <!--Nav bar start-->
