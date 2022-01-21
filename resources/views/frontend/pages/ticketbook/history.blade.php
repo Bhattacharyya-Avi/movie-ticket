@@ -41,7 +41,7 @@
                                         @endphp
                                         <td>{{$total_price}}</td>
                                         <td>
-                                            <a href="" class="btn btn-info"><i class="material-icons" style="font-size:18px">filter_list</i></a>
+                                            {{-- <a href="" class="btn btn-info"><i class="material-icons" style="font-size:18px">filter_list</i></a> --}}
                                             @if ($data->deleted_at == '')
                                                 <a href="{{route('ticket.book.payment',$data->id)}}" class="btn btn-warning"><i class="material-icons" style="font-size:18px">attach_money</i></a>
                                             @else
