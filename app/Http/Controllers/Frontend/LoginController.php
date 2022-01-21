@@ -33,7 +33,7 @@ class LoginController extends Controller
             'password'=>bcrypt( $request->password),
             'username'=>$request->username,
         ]);
-
+        session()->flash('success','You are registered...');
         return redirect()->route('user.login');
     }
 
@@ -43,6 +43,7 @@ class LoginController extends Controller
         // dd($userpost);
         // dd(Auth::attempt($userpost));
         if (Auth::attempt($userpost)) {
+            session()->flash('success','Welcome to BUSTERX.');
             return redirect()->route('frontend.index');
         }
         else {
@@ -53,6 +54,7 @@ class LoginController extends Controller
 
     public function userLogout(){
         Auth::logout();
+        session()->flash('success','Successfully logged out');
         return redirect()->back();
     }
 }
