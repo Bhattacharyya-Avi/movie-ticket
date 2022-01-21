@@ -53,6 +53,12 @@
                                 </a>
                             </li>
 
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="{{route('admin.user.list')}}" aria-expanded="false">
+                                    <i class="material-icons">person_outline</i>User List
+                                </a>
+                            </li>
+
 
                             {{-- <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"

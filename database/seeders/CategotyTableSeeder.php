@@ -20,27 +20,12 @@ class CategotyTableSeeder extends Seeder
         ]);
 
         Category::create([
-            'name'=>'Fiction',
-            'details'=>''
-        ]);
-
-        Category::create([
             'name'=>'Thriller',
             'details'=>''
         ]);
 
         Category::create([
-            'name'=>'Disaster',
-            'details'=>''
-        ]);
-
-        Category::create([
             'name'=>'Comedy',
-            'details'=>''
-        ]);
-
-        Category::create([
-            'name'=>'Crime',
             'details'=>''
         ]);
 
@@ -55,62 +40,12 @@ class CategotyTableSeeder extends Seeder
         ]);
 
         Category::create([
-            'name'=>'Biographical',
-            'details'=>''
-        ]);
-
-        Category::create([
-            'name'=>'Historical',
-            'details'=>''
-        ]);
-
-        Category::create([
-            'name'=>'Drama',
-            'details'=>''
-        ]);
-
-        Category::create([
-            'name'=>'War',
-            'details'=>''
-        ]);
-
-        Category::create([
             'name'=>'Adventure',
             'details'=>''
         ]);
 
         Category::create([
-            'name'=>'Documentary',
-            'details'=>''
-        ]);
-
-        Category::create([
             'name'=>'Animation',
-            'details'=>''
-        ]);
-
-        Category::create([
-            'name'=>'Experimental',
-            'details'=>''
-        ]);
-
-        Category::create([
-            'name'=>'Super Hero',
-            'details'=>''
-        ]);
-
-        Category::create([
-            'name'=>'Epic',
-            'details'=>''
-        ]);
-
-        Category::create([
-            'name'=>'Short Film',
-            'details'=>''
-        ]);
-
-        Category::create([
-            'name'=>'Fantasy',
             'details'=>''
         ]);
 

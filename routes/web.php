@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\PaymentController as BackendPaymentController;
 use App\Http\Controllers\Backend\SeatController;
 use App\Http\Controllers\Backend\SlotController;
 use App\Http\Controllers\Backend\TicketBookController as BackendTicketBookController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\Frontend\LoginController as FrontendLoginController;
 use App\Http\Controllers\Frontend\MovieController as FrontendMovieController;
@@ -51,6 +52,8 @@ Route::group(['prefix' => 'user'], function () {
 
         Route::get('/ticketbook/payment/{id}',[PaymentController::class,'payment'])->name('ticket.book.payment');
         Route::post('/ticketbook/payment/post/{id}',[PaymentController::class,'paymentPost'])->name('ticket.book.payment.post');
+
+        
 
     });
 });
@@ -107,6 +110,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/payment/approved/{pay_id}',[BackendPaymentController::class,'paymentApprove'])->name('admin.payment.approve');
         Route::get('/payment/delete/{pay_id}',[BackendPaymentController::class,'paymentDelete'])->name('admin.payment.delete');
 
+        // user list
+        Route::get('/user/list',[UserController::class,'userList'])->name('admin.user.list');
+        Route::get('/user/block/{user_id}',[UserController::class,'userBlock'])->name('admin.user.block');
+        Route::get('/user/free/{user_id}',[UserController::class,'userFree'])->name('admin.free.user');
 
     });
 });
