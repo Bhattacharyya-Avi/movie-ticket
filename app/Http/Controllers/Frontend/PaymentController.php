@@ -26,6 +26,7 @@ class PaymentController extends Controller
             'account_number'=>$request->account_number,
             'amount'=>$request->amount
         ]);
+        session()->flash('success','Payment request has sent.');
         return redirect()->route('ticket.book.history');
     }
 }

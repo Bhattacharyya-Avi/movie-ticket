@@ -5,7 +5,8 @@
     <button type="button" class="close" data-dismiss="alert">×</button>    
 
     <strong> 
-       <i class="material-icons">done</i> {{ $message }}
+       {{-- <i class="material-icons">done</i> --}}
+        {{ $message }}
     </strong>
 
 </div>
@@ -21,7 +22,8 @@
     <button type="button" class="close" data-dismiss="alert">×</button>    
 
     <strong>
-       <i class="material-icons" style="color:red">priority_high</i> {{ $message }}
+       {{-- <i class="material-icons" style="color:red">priority_high</i> --}}
+        {{ $message }}
     </strong>
 
 </div>
@@ -37,7 +39,8 @@
     <button type="button" class="close" data-dismiss="alert">×</button>    
 
     <strong>
-        <i class="material-icons">perm_device_information</i>{{ $message }}
+        {{-- <i class="material-icons">perm_device_information</i> --}}
+        {{ $message }}
     </strong>
 
 </div>
@@ -53,7 +56,8 @@
     <button type="button" class="close" data-dismiss="alert">×</button>    
 
     <strong>
-      <i class="material-icons">receipt</i>{{ $message }}
+      {{-- <i class="material-icons">receipt</i> --}}
+      {{ $message }}
     </strong>
 
 </div>
@@ -68,7 +72,8 @@
 
     <button type="button" class="close" data-dismiss="alert">×</button>    
 
-    <i class="material-icons" style="color:red">priority_high</i>Please check the form below for errors
+    {{-- <i class="material-icons" style="color:red">priority_high</i> --}}
+    Please check the form below for errors
 
 </div>
 

@@ -50,7 +50,7 @@
       <!--Nav bar end-->
       <!--Popular Movies start-->
 
-      
+      @include('flash-message')
     @yield('contents')
 
       

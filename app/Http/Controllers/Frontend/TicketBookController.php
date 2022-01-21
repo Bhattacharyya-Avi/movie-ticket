@@ -46,6 +46,7 @@ class TicketBookController extends Controller
             //     'status'=>'booked'
             // ]);
         }
+        session()->flash('success','Your ticket has booked.');
 
         return redirect()->route('ticket.book.history');
     }
