@@ -23,9 +23,10 @@
                                 TK {{$movie->ticket_price}} <br>
                                 <small style="color: red">This Price is for only one ticket.</small>
                             </p>
-                            {{-- <p class="Movie-detail">
-                                
-                            </p> --}}
+                            <p class="Movie-detail">
+                                {{-- Director: {{$movie->details}}<br> --}}
+                                Genre: {{$movie->category->name}}
+                            </p>
                             <p>Time: {{$movie->slot->start}} - {{$movie->slot->end}}</p>
                             <div class="form-group">
                                 <a class="btn btn-info" href="{{route('book.ticket.movie',$movie->id)}}">Book now</a>
@@ -36,10 +37,6 @@
                 <div class="col-sm-6">
                     
                    <h4 style="color: blue" >{{$movie->name}} : Movie Details</h4>
-                   <p style="text-align: justify;text-justify: inter-word;">
-                    Director: {{$movie->details}}<br>
-                    Genre: {{$movie->category->name}}
-                    </p>
                   <p style="text-align: justify;text-justify: inter-word;">
                     Details <br>
                     {{$movie->details}}
