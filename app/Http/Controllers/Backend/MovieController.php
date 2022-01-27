@@ -24,6 +24,13 @@ class MovieController extends Controller
 
     public function movieAdd(Request $request)
     {
+        $request->validate([
+            'name' =>'required',
+            'details'=>'required',
+            'category' =>'required',
+            'slot' =>'required',
+            'price' =>'required',
+        ]);
         // dd($request->all());
         $filename = '';
         if ($request->hasFile('image')) {
