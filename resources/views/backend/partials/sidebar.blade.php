@@ -59,6 +59,12 @@
                                 </a>
                             </li>
 
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="{{route('bussiness.settings')}}" aria-expanded="false">
+                                    <i class="material-icons">person_outline</i>Settings
+                                </a>
+                            </li>
+
 
                             {{-- <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
