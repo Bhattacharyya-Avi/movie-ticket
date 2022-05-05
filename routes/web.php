@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\BussinessSettingsController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\HomeController;
 use App\Http\Controllers\Backend\LoginController;
@@ -59,6 +60,9 @@ Route::group(['prefix' => 'user'], function () {
 });
 //backend
 Route::group(['prefix' => 'admin'], function () {
+    // bussiness settings
+    Route::get('/bussiness/settings',[BussinessSettingsController::class,'settings'])->name('bussiness.settings');
+    Route::put('/bussiness/settings/{id}',[BussinessSettingsController::class,'settingsUpdate'])->name('bussiness.settings.update');
 
     Route::get('/', [LoginController::class, 'login'])->name('admin.login');
     Route::post('/admin/login', [LoginController::class, 'doLogin'])->name('admin.do.login');

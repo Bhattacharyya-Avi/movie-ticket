@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BUSTERX</title>
+  <title>{{$settings->name}}</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -42,10 +42,10 @@
       </div>
 
       <div class="name">
-        <h3>Welcome to BUSTERX</h3>
+        <h3>Welcome to {{$settings->name}}</h3>
         <h1>Book Your Tickets
         </h1>
-        <h2>For Our Special Movies</h2>
+        <h2><p>{{$settings->about}}</p></h2>
       </div>
       <!--Nav bar end-->
       <!--Popular Movies start-->
