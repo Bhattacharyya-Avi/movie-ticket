@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    use Illuminate\Foundation\Testing\DatabaseMigrations;
+    use DatabaseMigrations;
     /**
      * A basic test example.
      *
